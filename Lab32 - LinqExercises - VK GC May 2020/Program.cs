@@ -11,7 +11,7 @@ namespace Lab32___LinqExercises___VK_GC_May_2020
     {
         static void Main(string[] args)
         {
-            int[] nums =  { 10, 2330, 112233, 748394, 10, 949, 3764, 2942, 35, 6, 3 };
+            int[] nums = { 10, 2330, 112233, 748394, 10, 949, 3764, 2942, 35, 6, 3 };
 
             //For nums
             //1.Find the minimum value
@@ -30,23 +30,18 @@ namespace Lab32___LinqExercises___VK_GC_May_2020
             //List<int> numbers = new List<int> { 10, 2330, 112233, 748394, 10, 949, 3764, 2942, 35, 6, 3 };
 
             var values = (from n in nums where n >= 10 && n <= 100 select n);
-            Console.WriteLine("All numbers between 10 and 100: {0}", values);
+            Console.Write("All numbers between 10 and 100: ");
+            values.ToList().ForEach(n => Console.Write(n + " "));
+            Console.WriteLine();
 
-            //List<int> numbersOutput = values.ToList();
-            //foreach( int n in numbersOutput)
-            //{
-            //    
-            //}
 
             //5. Find all Values between 100000 and 999999 inclusive
             var allValues = (from n in nums where n >= 100000 && n <= 999999 select n);
-            Console.WriteLine("All numbers between 100,000 and 999,999: {0}", allValues);
-            
-            //List<int> numbersAnswer = allValues.ToList();
-            //foreach (int y in numbersAnswer)
-            //{
-            //    
-            //}
+            //Console.WriteLine("All numbers between 100,000 and 999,999: {0}", allValues);
+            Console.Write("All numbers between 100,000 and 999,999:  ");
+            allValues.ToList().ForEach(n => Console.Write(n + " "));
+            Console.WriteLine();
+
 
             //6. Count all the even numbers 
             int allEvenNumbers = nums.Where(a => a % 2 == 0).Count();
@@ -65,14 +60,14 @@ namespace Lab32___LinqExercises___VK_GC_May_2020
             Students.Add(new Student("Curtis", 10));
 
             Solution s = new Solution(Students);
-            
+
             s.FindAllStudentsAged21AndOver();
             s.FindTheOldestStudent();
-            //s.FindTheYoungestStudent();
-            //s.FindTheOldestStudentUnder25
-            //s.FindAllStudentsOver21AndWithEvenAges
-            //s.FindAllTeenageStudents
-            //s.FindAllStudentsWhoseNameStartsWithAVowel
+            s.FindTheYoungestStudent();
+            s.FindTheOldestStudentUnder25();
+            s.FindAllStudentsOver21AndWithEvenAges();
+            s.FindAllTeenageStudents();
+            s.FindAllStudentsWhoseNameStartsWithAVowel();
 
         }
     }
